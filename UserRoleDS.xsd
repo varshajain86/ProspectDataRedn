@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://fert.cargill.com/UserRoleDS.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://fert.cargill.com/UserRoleDS.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://fert.cargill.com/UserRoleDS.xsd" id="UserRoleDS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="UserRoleDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="UserRole">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="UserID" type="xs:long" />
+              <xs:element name="RoleID" type="xs:long" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique msdata:PrimaryKey="true" name="UserRoleDS_PK">
+      <xs:selector xpath=".//mstns:UserRole" />
+      <xs:field xpath="mstns:UserID" />
+      <xs:field xpath="mstns:RoleID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

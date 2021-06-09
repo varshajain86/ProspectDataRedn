@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx?schema=UserRoleDS" filename="UserRoleDS.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx?schema=UserDS" filename="UserDS.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx?schema=ActivityTypeDS" filename="ActivityTypeDS.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx?schema=RoleActivityDS" filename="RoleActivityDS.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx?schema=ActivityDS" filename="ActivityDS.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx?schema=RoleDS" filename="RoleDS.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx?disco" filename="security.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx?wsdl" filename="security.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

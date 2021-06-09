@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://fert.cargill.com/Datasets/UserDS.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://fert.cargill.com/Datasets/UserDS.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://fert.cargill.com/Datasets/UserDS.xsd" id="UserDS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="UserDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="User">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="UserID" type="xs:long" />
+              <xs:element name="UserName" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique msdata:PrimaryKey="true" name="UserDS_PK">
+      <xs:selector xpath=".//mstns:User" />
+      <xs:field xpath="mstns:UserID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

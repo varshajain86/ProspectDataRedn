@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://mosaicco.com/ActivityDS.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://mosaicco.com/ActivityDS.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://mosaicco.com/ActivityDS.xsd" id="ActivityDS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="ActivityDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Activity">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ActivityID" type="xs:long" />
+              <xs:element name="ActivityName" type="xs:string" />
+              <xs:element minOccurs="0" name="ActivityDescription" type="xs:string" />
+              <xs:element name="ActivityTypeID" type="xs:long" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique msdata:PrimaryKey="true" name="ActivityDS_ActivityID">
+      <xs:selector xpath=".//mstns:Activity" />
+      <xs:field xpath="mstns:ActivityID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

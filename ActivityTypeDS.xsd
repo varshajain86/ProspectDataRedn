@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://fert.cargill.com/Datasets/ActivityTypeDS.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://fert.cargill.com/Datasets/ActivityTypeDS.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://fert.cargill.com/Datasets/ActivityTypeDS.xsd" id="ActivityTypeDS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="ActivityTypeDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ActivityType">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ActivityTypeID" type="xs:long" />
+              <xs:element minOccurs="0" name="ActivityTypeName" type="xs:string" />
+              <xs:element minOccurs="0" name="ActivityTypeDescription" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique msdata:PrimaryKey="true" name="ActivityTypeDS_ActivityTypeID">
+      <xs:selector xpath=".//mstns:ActivityType" />
+      <xs:field xpath="mstns:ActivityTypeID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

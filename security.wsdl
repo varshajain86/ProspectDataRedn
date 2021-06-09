@@ -1,0 +1,2000 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://mosaicco.com/util/security/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://mosaicco.com/util/security/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://mosaicco.com/util/security/">
+      <s:import namespace="http://mosaicco.com/ActivityDS.xsd" />
+      <s:import namespace="http://fert.cargill.com/Datasets/ActivityTypeDS.xsd" />
+      <s:import namespace="http://fert.cargill.com/Datasets/RoleDS.xsd" />
+      <s:import namespace="http://fert.cargill.com/RoleActivityDS.xsd" />
+      <s:import namespace="http://fert.cargill.com/UserRoleDS.xsd" />
+      <s:import namespace="http://fert.cargill.com/Datasets/UserDS.xsd" />
+      <s:import schemaLocation="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx?schema=ActivityTypeDS" namespace="http://fert.cargill.com/Datasets/ActivityTypeDS.xsd" />
+      <s:import schemaLocation="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx?schema=UserDS" namespace="http://fert.cargill.com/Datasets/UserDS.xsd" />
+      <s:import schemaLocation="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx?schema=RoleDS" namespace="http://fert.cargill.com/Datasets/RoleDS.xsd" />
+      <s:import schemaLocation="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx?schema=ActivityDS" namespace="http://mosaicco.com/ActivityDS.xsd" />
+      <s:import schemaLocation="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx?schema=RoleActivityDS" namespace="http://fert.cargill.com/RoleActivityDS.xsd" />
+      <s:import schemaLocation="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx?schema=UserRoleDS" namespace="http://fert.cargill.com/UserRoleDS.xsd" />
+      <s:element name="GetNewID">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNewIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNewIDResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActivityByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActivityByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActivityByIDResult" type="tns:Activity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Activity">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ActivityID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActivityType" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActivityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActivityDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetActivityList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetActivityListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActivityListResult" type="tns:ArrayOfActivity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfActivity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Activity" nillable="true" type="tns:Activity" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetActivityListByRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="roleID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActivityListByRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActivityListByRoleResult" type="tns:ArrayOfActivity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActivityListByUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActivityListByUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActivityListByUserResult" type="tns:ArrayOfActivity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActivityDS">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetActivityDSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActivityDSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://mosaicco.com/ActivityDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActivityDSByRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RoleID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActivityDSByRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActivityDSByRoleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://mosaicco.com/ActivityDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActivityDSByUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActivityDSByUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActivityDSByUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://mosaicco.com/ActivityDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddActivity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ai" type="tns:Activity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddActivityResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateActivity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ai" type="tns:Activity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateActivityResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveActivity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveActivityResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetActivityTypeList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetActivityTypeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActivityTypeListResult" type="tns:ArrayOfActivityType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfActivityType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ActivityType" nillable="true" type="tns:ActivityType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ActivityType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ActivityTypeID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActivityTypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActivityTypeDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetActivityTypeDS">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetActivityTypeDSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActivityTypeDSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://fert.cargill.com/Datasets/ActivityTypeDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddActivityType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ai" type="tns:ActivityType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddActivityTypeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateActivityType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ai" type="tns:ActivityType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateActivityTypeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveActivityType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveActivityTypeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRoleByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoleByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoleByNameResult" type="tns:Role" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Role">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRoleByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoleByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoleByIDResult" type="tns:Role" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoleList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRoleListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoleListResult" type="tns:ArrayOfRole" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRole">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Role" nillable="true" type="tns:Role" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRoleListByUserAndActivity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="Activity" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoleListByUserAndActivityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoleListByUserAndActivityResult" type="tns:ArrayOfRole" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListByUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListByUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListByUserResult" type="tns:ArrayOfRole" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListResult" type="tns:ArrayOfRole" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoleDS">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRoleDSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoleDSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://fert.cargill.com/Datasets/RoleDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoleActivityDS">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRoleActivityDSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoleActivityDSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://fert.cargill.com/RoleActivityDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserRoleDS">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUserRoleDSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserRoleDSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://fert.cargill.com/UserRoleDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsUserAdmin">
+        <s:complexType />
+      </s:element>
+      <s:element name="IsUserAdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsUserAdminResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="tns:Role" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddRoleResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveRoleResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddRoleUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RoleID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddRoleUserResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveRoleUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RoleID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveRoleUserResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddRoleActivity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RoleID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ActivityID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddRoleActivityResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveRoleActivity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RoleID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ActivityID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveRoleActivityResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUserByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserByIDResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="User">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUserListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserListResult" type="tns:ArrayOfUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCurrentUserID">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCurrentUserIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCurrentUserIDResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserListByUserName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserListByUserNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserListByUserNameResult" type="tns:ArrayOfUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserListByRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RoleID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserListByRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserListByRoleResult" type="tns:ArrayOfUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserDS">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUserDSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserDSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://fert.cargill.com/Datasets/UserDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserDSByUserName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserDSByUserNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserDSByUserNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://fert.cargill.com/Datasets/UserDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserDSByRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RoleID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserDSByRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserDSByRoleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://fert.cargill.com/Datasets/UserDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vuser" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveUserResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uInfo" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddUserRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="RoleID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserRoleResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveUserRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="RoleID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveUserRoleResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="IsAuthorized">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ActivityName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsAuthorizedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsAuthorizedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoleDatapoints">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Role_ID_List" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoleDatapointsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoleDatapointsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetNewIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewID" />
+  </wsdl:message>
+  <wsdl:message name="GetNewIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActivityByID" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActivityByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActivityList" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActivityListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityListByRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActivityListByRole" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityListByRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActivityListByRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityListByUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActivityListByUser" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityListByUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActivityListByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityDSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActivityDS" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityDSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActivityDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityDSByRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActivityDSByRole" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityDSByRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActivityDSByRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityDSByUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActivityDSByUser" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityDSByUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActivityDSByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddActivitySoapIn">
+    <wsdl:part name="parameters" element="tns:AddActivity" />
+  </wsdl:message>
+  <wsdl:message name="AddActivitySoapOut">
+    <wsdl:part name="parameters" element="tns:AddActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateActivitySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateActivity" />
+  </wsdl:message>
+  <wsdl:message name="UpdateActivitySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveActivitySoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveActivity" />
+  </wsdl:message>
+  <wsdl:message name="RemoveActivitySoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityTypeListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActivityTypeList" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityTypeListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActivityTypeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityTypeDSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActivityTypeDS" />
+  </wsdl:message>
+  <wsdl:message name="GetActivityTypeDSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActivityTypeDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddActivityTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:AddActivityType" />
+  </wsdl:message>
+  <wsdl:message name="AddActivityTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:AddActivityTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateActivityTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateActivityType" />
+  </wsdl:message>
+  <wsdl:message name="UpdateActivityTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateActivityTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveActivityTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveActivityType" />
+  </wsdl:message>
+  <wsdl:message name="RemoveActivityTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveActivityTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoleByName" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoleByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoleByID" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoleByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoleList" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleListByUserAndActivitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoleListByUserAndActivity" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleListByUserAndActivitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoleListByUserAndActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListByUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListByUser" />
+  </wsdl:message>
+  <wsdl:message name="GetListByUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetList" />
+  </wsdl:message>
+  <wsdl:message name="GetListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleDSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoleDS" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleDSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoleDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleActivityDSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoleActivityDS" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleActivityDSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoleActivityDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserRoleDSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserRoleDS" />
+  </wsdl:message>
+  <wsdl:message name="GetUserRoleDSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserRoleDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsUserAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:IsUserAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IsUserAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:IsUserAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:AddRole" />
+  </wsdl:message>
+  <wsdl:message name="AddRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:AddRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveRole" />
+  </wsdl:message>
+  <wsdl:message name="RemoveRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddRoleUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AddRoleUser" />
+  </wsdl:message>
+  <wsdl:message name="AddRoleUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AddRoleUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveRoleUserSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveRoleUser" />
+  </wsdl:message>
+  <wsdl:message name="RemoveRoleUserSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveRoleUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddRoleActivitySoapIn">
+    <wsdl:part name="parameters" element="tns:AddRoleActivity" />
+  </wsdl:message>
+  <wsdl:message name="AddRoleActivitySoapOut">
+    <wsdl:part name="parameters" element="tns:AddRoleActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveRoleActivitySoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveRoleActivity" />
+  </wsdl:message>
+  <wsdl:message name="RemoveRoleActivitySoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveRoleActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserByID" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserList" />
+  </wsdl:message>
+  <wsdl:message name="GetUserListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentUserIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentUserID" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentUserIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserListByUserNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserListByUserName" />
+  </wsdl:message>
+  <wsdl:message name="GetUserListByUserNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserListByUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserListByRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserListByRole" />
+  </wsdl:message>
+  <wsdl:message name="GetUserListByRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserListByRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserDS" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDSByUserNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserDSByUserName" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDSByUserNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserDSByUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDSByRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserDSByRole" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDSByRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserDSByRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="AddUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveUser" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddUserRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:AddUserRole" />
+  </wsdl:message>
+  <wsdl:message name="AddUserRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:AddUserRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveUserRole" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveUserRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsAuthorizedSoapIn">
+    <wsdl:part name="parameters" element="tns:IsAuthorized" />
+  </wsdl:message>
+  <wsdl:message name="IsAuthorizedSoapOut">
+    <wsdl:part name="parameters" element="tns:IsAuthorizedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleDatapointsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoleDatapoints" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleDatapointsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoleDatapointsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SecurityServiceSoap">
+    <wsdl:operation name="GetNewID">
+      <wsdl:input message="tns:GetNewIDSoapIn" />
+      <wsdl:output message="tns:GetNewIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityByID">
+      <wsdl:input message="tns:GetActivityByIDSoapIn" />
+      <wsdl:output message="tns:GetActivityByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityList">
+      <wsdl:input message="tns:GetActivityListSoapIn" />
+      <wsdl:output message="tns:GetActivityListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityListByRole">
+      <wsdl:input message="tns:GetActivityListByRoleSoapIn" />
+      <wsdl:output message="tns:GetActivityListByRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityListByUser">
+      <wsdl:input message="tns:GetActivityListByUserSoapIn" />
+      <wsdl:output message="tns:GetActivityListByUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityDS">
+      <wsdl:input message="tns:GetActivityDSSoapIn" />
+      <wsdl:output message="tns:GetActivityDSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityDSByRole">
+      <wsdl:input message="tns:GetActivityDSByRoleSoapIn" />
+      <wsdl:output message="tns:GetActivityDSByRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityDSByUser">
+      <wsdl:input message="tns:GetActivityDSByUserSoapIn" />
+      <wsdl:output message="tns:GetActivityDSByUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddActivity">
+      <wsdl:input message="tns:AddActivitySoapIn" />
+      <wsdl:output message="tns:AddActivitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateActivity">
+      <wsdl:input message="tns:UpdateActivitySoapIn" />
+      <wsdl:output message="tns:UpdateActivitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveActivity">
+      <wsdl:input message="tns:RemoveActivitySoapIn" />
+      <wsdl:output message="tns:RemoveActivitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityTypeList">
+      <wsdl:input message="tns:GetActivityTypeListSoapIn" />
+      <wsdl:output message="tns:GetActivityTypeListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityTypeDS">
+      <wsdl:input message="tns:GetActivityTypeDSSoapIn" />
+      <wsdl:output message="tns:GetActivityTypeDSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddActivityType">
+      <wsdl:input message="tns:AddActivityTypeSoapIn" />
+      <wsdl:output message="tns:AddActivityTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateActivityType">
+      <wsdl:input message="tns:UpdateActivityTypeSoapIn" />
+      <wsdl:output message="tns:UpdateActivityTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveActivityType">
+      <wsdl:input message="tns:RemoveActivityTypeSoapIn" />
+      <wsdl:output message="tns:RemoveActivityTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleByName">
+      <wsdl:input message="tns:GetRoleByNameSoapIn" />
+      <wsdl:output message="tns:GetRoleByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleByID">
+      <wsdl:input message="tns:GetRoleByIDSoapIn" />
+      <wsdl:output message="tns:GetRoleByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleList">
+      <wsdl:input message="tns:GetRoleListSoapIn" />
+      <wsdl:output message="tns:GetRoleListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleListByUserAndActivity">
+      <wsdl:input message="tns:GetRoleListByUserAndActivitySoapIn" />
+      <wsdl:output message="tns:GetRoleListByUserAndActivitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListByUser">
+      <wsdl:input message="tns:GetListByUserSoapIn" />
+      <wsdl:output message="tns:GetListByUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input message="tns:GetListSoapIn" />
+      <wsdl:output message="tns:GetListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleDS">
+      <wsdl:input message="tns:GetRoleDSSoapIn" />
+      <wsdl:output message="tns:GetRoleDSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleActivityDS">
+      <wsdl:input message="tns:GetRoleActivityDSSoapIn" />
+      <wsdl:output message="tns:GetRoleActivityDSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoleDS">
+      <wsdl:input message="tns:GetUserRoleDSSoapIn" />
+      <wsdl:output message="tns:GetUserRoleDSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsUserAdmin">
+      <wsdl:input message="tns:IsUserAdminSoapIn" />
+      <wsdl:output message="tns:IsUserAdminSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <wsdl:input message="tns:AddRoleSoapIn" />
+      <wsdl:output message="tns:AddRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRole">
+      <wsdl:input message="tns:RemoveRoleSoapIn" />
+      <wsdl:output message="tns:RemoveRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRoleUser">
+      <wsdl:input message="tns:AddRoleUserSoapIn" />
+      <wsdl:output message="tns:AddRoleUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRoleUser">
+      <wsdl:input message="tns:RemoveRoleUserSoapIn" />
+      <wsdl:output message="tns:RemoveRoleUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRoleActivity">
+      <wsdl:input message="tns:AddRoleActivitySoapIn" />
+      <wsdl:output message="tns:AddRoleActivitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRoleActivity">
+      <wsdl:input message="tns:RemoveRoleActivitySoapIn" />
+      <wsdl:output message="tns:RemoveRoleActivitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByID">
+      <wsdl:input message="tns:GetUserByIDSoapIn" />
+      <wsdl:output message="tns:GetUserByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserList">
+      <wsdl:input message="tns:GetUserListSoapIn" />
+      <wsdl:output message="tns:GetUserListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentUserID">
+      <wsdl:input message="tns:GetCurrentUserIDSoapIn" />
+      <wsdl:output message="tns:GetCurrentUserIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserListByUserName">
+      <wsdl:input message="tns:GetUserListByUserNameSoapIn" />
+      <wsdl:output message="tns:GetUserListByUserNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserListByRole">
+      <wsdl:input message="tns:GetUserListByRoleSoapIn" />
+      <wsdl:output message="tns:GetUserListByRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDS">
+      <wsdl:input message="tns:GetUserDSSoapIn" />
+      <wsdl:output message="tns:GetUserDSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDSByUserName">
+      <wsdl:input message="tns:GetUserDSByUserNameSoapIn" />
+      <wsdl:output message="tns:GetUserDSByUserNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDSByRole">
+      <wsdl:input message="tns:GetUserDSByRoleSoapIn" />
+      <wsdl:output message="tns:GetUserDSByRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input message="tns:AddUserSoapIn" />
+      <wsdl:output message="tns:AddUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUser">
+      <wsdl:input message="tns:RemoveUserSoapIn" />
+      <wsdl:output message="tns:RemoveUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input message="tns:UpdateUserSoapIn" />
+      <wsdl:output message="tns:UpdateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserRole">
+      <wsdl:input message="tns:AddUserRoleSoapIn" />
+      <wsdl:output message="tns:AddUserRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserRole">
+      <wsdl:input message="tns:RemoveUserRoleSoapIn" />
+      <wsdl:output message="tns:RemoveUserRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAuthorized">
+      <wsdl:input message="tns:IsAuthorizedSoapIn" />
+      <wsdl:output message="tns:IsAuthorizedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleDatapoints">
+      <wsdl:input message="tns:GetRoleDatapointsSoapIn" />
+      <wsdl:output message="tns:GetRoleDatapointsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SecurityServiceSoap" type="tns:SecurityServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNewID">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetNewID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityByID">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetActivityByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityList">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetActivityList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityListByRole">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetActivityListByRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityListByUser">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetActivityListByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityDS">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetActivityDS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityDSByRole">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetActivityDSByRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityDSByUser">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetActivityDSByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddActivity">
+      <soap:operation soapAction="http://mosaicco.com/util/security/AddActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateActivity">
+      <soap:operation soapAction="http://mosaicco.com/util/security/UpdateActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveActivity">
+      <soap:operation soapAction="http://mosaicco.com/util/security/RemoveActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityTypeList">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetActivityTypeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityTypeDS">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetActivityTypeDS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddActivityType">
+      <soap:operation soapAction="http://mosaicco.com/util/security/AddActivityType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateActivityType">
+      <soap:operation soapAction="http://mosaicco.com/util/security/UpdateActivityType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveActivityType">
+      <soap:operation soapAction="http://mosaicco.com/util/security/RemoveActivityType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleByName">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetRoleByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleByID">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetRoleByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleList">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetRoleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleListByUserAndActivity">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetRoleListByUserAndActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListByUser">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetListByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleDS">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetRoleDS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleActivityDS">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetRoleActivityDS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoleDS">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetUserRoleDS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserAdmin">
+      <soap:operation soapAction="http://mosaicco.com/util/security/IsUserAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <soap:operation soapAction="http://mosaicco.com/util/security/AddRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRole">
+      <soap:operation soapAction="http://mosaicco.com/util/security/RemoveRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRoleUser">
+      <soap:operation soapAction="http://mosaicco.com/util/security/AddRoleUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRoleUser">
+      <soap:operation soapAction="http://mosaicco.com/util/security/RemoveRoleUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRoleActivity">
+      <soap:operation soapAction="http://mosaicco.com/util/security/AddRoleActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRoleActivity">
+      <soap:operation soapAction="http://mosaicco.com/util/security/RemoveRoleActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByID">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetUserByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserList">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetUserList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentUserID">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetCurrentUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserListByUserName">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetUserListByUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserListByRole">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetUserListByRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDS">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetUserDS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDSByUserName">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetUserDSByUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDSByRole">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetUserDSByRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://mosaicco.com/util/security/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUser">
+      <soap:operation soapAction="http://mosaicco.com/util/security/RemoveUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://mosaicco.com/util/security/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserRole">
+      <soap:operation soapAction="http://mosaicco.com/util/security/AddUserRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserRole">
+      <soap:operation soapAction="http://mosaicco.com/util/security/RemoveUserRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAuthorized">
+      <soap:operation soapAction="http://mosaicco.com/util/security/IsAuthorized" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleDatapoints">
+      <soap:operation soapAction="http://mosaicco.com/util/security/GetRoleDatapoints" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SecurityServiceSoap12" type="tns:SecurityServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNewID">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetNewID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityByID">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetActivityByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityList">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetActivityList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityListByRole">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetActivityListByRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityListByUser">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetActivityListByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityDS">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetActivityDS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityDSByRole">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetActivityDSByRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityDSByUser">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetActivityDSByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddActivity">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/AddActivity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateActivity">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/UpdateActivity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveActivity">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/RemoveActivity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityTypeList">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetActivityTypeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityTypeDS">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetActivityTypeDS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddActivityType">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/AddActivityType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateActivityType">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/UpdateActivityType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveActivityType">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/RemoveActivityType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleByName">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetRoleByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleByID">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetRoleByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleList">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetRoleList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleListByUserAndActivity">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetRoleListByUserAndActivity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListByUser">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetListByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleDS">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetRoleDS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleActivityDS">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetRoleActivityDS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoleDS">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetUserRoleDS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserAdmin">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/IsUserAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/AddRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRole">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/RemoveRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRoleUser">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/AddRoleUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRoleUser">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/RemoveRoleUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRoleActivity">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/AddRoleActivity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRoleActivity">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/RemoveRoleActivity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByID">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetUserByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserList">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetUserList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentUserID">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetCurrentUserID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserListByUserName">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetUserListByUserName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserListByRole">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetUserListByRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDS">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetUserDS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDSByUserName">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetUserDSByUserName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDSByRole">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetUserDSByRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/AddUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUser">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/RemoveUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserRole">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/AddUserRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserRole">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/RemoveUserRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAuthorized">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/IsAuthorized" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleDatapoints">
+      <soap12:operation soapAction="http://mosaicco.com/util/security/GetRoleDatapoints" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SecurityService">
+    <wsdl:port name="SecurityServiceSoap" binding="tns:SecurityServiceSoap">
+      <soap:address location="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SecurityServiceSoap12" binding="tns:SecurityServiceSoap12">
+      <soap12:address location="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
