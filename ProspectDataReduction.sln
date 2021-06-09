@@ -1,0 +1,178 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ProspectDataReduction", "ProspectDataReduction.vbproj", "{38D6AA82-B530-4E22-88CD-50CE5161D775}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Mining.Common", "..\Office\Mining.Common\Mining.Common.vbproj", "{9583F64A-9E75-4315-ACBB-530A62814695}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mosaic.ProspectMining.Business", "..\SplitDataReducer\Mosiac.ProspectMining.Business\Mosaic.ProspectMining.Business.csproj", "{096B168F-0CAE-432A-A44C-611C2BD0349E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mosaic.ProspectMining.Model", "..\SplitDataReducer\Mosaic.ProspectMining.Model\Mosaic.ProspectMining.Model.csproj", "{46B37086-A994-4E95-B7DC-220E8217F010}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mosaic.ProspectMining.Data", "..\SplitDataReducer\Mosaic.ProspectMining.Data\Mosaic.ProspectMining.Data.csproj", "{58FE162E-2E19-4C2A-A540-16729888CAF5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BAL", "BAL", "{BD88B0DD-A88B-497D-990B-D002F507654E}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "RawProspect_WCFServiceLib", "..\..\..\Mining\Prospect\RawProspect_WCFServiceLib\RawProspect_WCFServiceLib.vbproj", "{4D7EC6B0-713C-44C7-909D-C1C2028BEE17}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Legacy", "Legacy", "{A2FD8F5F-5C0A-45E5-8D84-74E486C9BC65}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Entities", "..\..\..\Mining\Prospect\Entities\Entities.vbproj", "{B49FC4AB-BC7C-471C-99F0-51AA89313C83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleHelper64", "..\..\..\Util\Data\OracleHelper64\OracleHelper64\OracleHelper64.csproj", "{F62FCEC6-B818-487A-9FF5-D67D267FEB3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38D6AA82-B530-4E22-88CD-50CE5161D775}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{38D6AA82-B530-4E22-88CD-50CE5161D775}.Debug|Any CPU.Build.0 = Debug|x86
+		{38D6AA82-B530-4E22-88CD-50CE5161D775}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{38D6AA82-B530-4E22-88CD-50CE5161D775}.Debug|x64.Build.0 = Debug|Any CPU
+		{38D6AA82-B530-4E22-88CD-50CE5161D775}.Debug|x86.ActiveCfg = Debug|x86
+		{38D6AA82-B530-4E22-88CD-50CE5161D775}.Debug|x86.Build.0 = Debug|x86
+		{38D6AA82-B530-4E22-88CD-50CE5161D775}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38D6AA82-B530-4E22-88CD-50CE5161D775}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38D6AA82-B530-4E22-88CD-50CE5161D775}.Release|x64.ActiveCfg = Release|Any CPU
+		{38D6AA82-B530-4E22-88CD-50CE5161D775}.Release|x64.Build.0 = Release|Any CPU
+		{38D6AA82-B530-4E22-88CD-50CE5161D775}.Release|x86.ActiveCfg = Release|x86
+		{38D6AA82-B530-4E22-88CD-50CE5161D775}.Release|x86.Build.0 = Release|x86
+		{9583F64A-9E75-4315-ACBB-530A62814695}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{9583F64A-9E75-4315-ACBB-530A62814695}.Debug|Any CPU.Build.0 = Debug|x86
+		{9583F64A-9E75-4315-ACBB-530A62814695}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9583F64A-9E75-4315-ACBB-530A62814695}.Debug|x64.Build.0 = Debug|Any CPU
+		{9583F64A-9E75-4315-ACBB-530A62814695}.Debug|x86.ActiveCfg = Debug|x86
+		{9583F64A-9E75-4315-ACBB-530A62814695}.Debug|x86.Build.0 = Debug|x86
+		{9583F64A-9E75-4315-ACBB-530A62814695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9583F64A-9E75-4315-ACBB-530A62814695}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9583F64A-9E75-4315-ACBB-530A62814695}.Release|x64.ActiveCfg = Release|Any CPU
+		{9583F64A-9E75-4315-ACBB-530A62814695}.Release|x64.Build.0 = Release|Any CPU
+		{9583F64A-9E75-4315-ACBB-530A62814695}.Release|x86.ActiveCfg = Release|x86
+		{9583F64A-9E75-4315-ACBB-530A62814695}.Release|x86.Build.0 = Release|x86
+		{096B168F-0CAE-432A-A44C-611C2BD0349E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{096B168F-0CAE-432A-A44C-611C2BD0349E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{096B168F-0CAE-432A-A44C-611C2BD0349E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{096B168F-0CAE-432A-A44C-611C2BD0349E}.Debug|x64.Build.0 = Debug|Any CPU
+		{096B168F-0CAE-432A-A44C-611C2BD0349E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{096B168F-0CAE-432A-A44C-611C2BD0349E}.Debug|x86.Build.0 = Debug|Any CPU
+		{096B168F-0CAE-432A-A44C-611C2BD0349E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{096B168F-0CAE-432A-A44C-611C2BD0349E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{096B168F-0CAE-432A-A44C-611C2BD0349E}.Release|x64.ActiveCfg = Release|Any CPU
+		{096B168F-0CAE-432A-A44C-611C2BD0349E}.Release|x64.Build.0 = Release|Any CPU
+		{096B168F-0CAE-432A-A44C-611C2BD0349E}.Release|x86.ActiveCfg = Release|Any CPU
+		{096B168F-0CAE-432A-A44C-611C2BD0349E}.Release|x86.Build.0 = Release|Any CPU
+		{46B37086-A994-4E95-B7DC-220E8217F010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46B37086-A994-4E95-B7DC-220E8217F010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46B37086-A994-4E95-B7DC-220E8217F010}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{46B37086-A994-4E95-B7DC-220E8217F010}.Debug|x64.Build.0 = Debug|Any CPU
+		{46B37086-A994-4E95-B7DC-220E8217F010}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{46B37086-A994-4E95-B7DC-220E8217F010}.Debug|x86.Build.0 = Debug|Any CPU
+		{46B37086-A994-4E95-B7DC-220E8217F010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46B37086-A994-4E95-B7DC-220E8217F010}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46B37086-A994-4E95-B7DC-220E8217F010}.Release|x64.ActiveCfg = Release|Any CPU
+		{46B37086-A994-4E95-B7DC-220E8217F010}.Release|x64.Build.0 = Release|Any CPU
+		{46B37086-A994-4E95-B7DC-220E8217F010}.Release|x86.ActiveCfg = Release|Any CPU
+		{46B37086-A994-4E95-B7DC-220E8217F010}.Release|x86.Build.0 = Release|Any CPU
+		{58FE162E-2E19-4C2A-A540-16729888CAF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58FE162E-2E19-4C2A-A540-16729888CAF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58FE162E-2E19-4C2A-A540-16729888CAF5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{58FE162E-2E19-4C2A-A540-16729888CAF5}.Debug|x64.Build.0 = Debug|Any CPU
+		{58FE162E-2E19-4C2A-A540-16729888CAF5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{58FE162E-2E19-4C2A-A540-16729888CAF5}.Debug|x86.Build.0 = Debug|Any CPU
+		{58FE162E-2E19-4C2A-A540-16729888CAF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58FE162E-2E19-4C2A-A540-16729888CAF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58FE162E-2E19-4C2A-A540-16729888CAF5}.Release|x64.ActiveCfg = Release|Any CPU
+		{58FE162E-2E19-4C2A-A540-16729888CAF5}.Release|x64.Build.0 = Release|Any CPU
+		{58FE162E-2E19-4C2A-A540-16729888CAF5}.Release|x86.ActiveCfg = Release|Any CPU
+		{58FE162E-2E19-4C2A-A540-16729888CAF5}.Release|x86.Build.0 = Release|Any CPU
+		{4D7EC6B0-713C-44C7-909D-C1C2028BEE17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D7EC6B0-713C-44C7-909D-C1C2028BEE17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D7EC6B0-713C-44C7-909D-C1C2028BEE17}.Debug|x64.ActiveCfg = Debug|x64
+		{4D7EC6B0-713C-44C7-909D-C1C2028BEE17}.Debug|x64.Build.0 = Debug|x64
+		{4D7EC6B0-713C-44C7-909D-C1C2028BEE17}.Debug|x86.ActiveCfg = Debug|x64
+		{4D7EC6B0-713C-44C7-909D-C1C2028BEE17}.Debug|x86.Build.0 = Debug|x64
+		{4D7EC6B0-713C-44C7-909D-C1C2028BEE17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D7EC6B0-713C-44C7-909D-C1C2028BEE17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D7EC6B0-713C-44C7-909D-C1C2028BEE17}.Release|x64.ActiveCfg = Release|x64
+		{4D7EC6B0-713C-44C7-909D-C1C2028BEE17}.Release|x64.Build.0 = Release|x64
+		{4D7EC6B0-713C-44C7-909D-C1C2028BEE17}.Release|x86.ActiveCfg = Release|x64
+		{4D7EC6B0-713C-44C7-909D-C1C2028BEE17}.Release|x86.Build.0 = Release|x64
+		{B49FC4AB-BC7C-471C-99F0-51AA89313C83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B49FC4AB-BC7C-471C-99F0-51AA89313C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B49FC4AB-BC7C-471C-99F0-51AA89313C83}.Debug|x64.ActiveCfg = Debug|x64
+		{B49FC4AB-BC7C-471C-99F0-51AA89313C83}.Debug|x64.Build.0 = Debug|x64
+		{B49FC4AB-BC7C-471C-99F0-51AA89313C83}.Debug|x86.ActiveCfg = Debug|x64
+		{B49FC4AB-BC7C-471C-99F0-51AA89313C83}.Debug|x86.Build.0 = Debug|x64
+		{B49FC4AB-BC7C-471C-99F0-51AA89313C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B49FC4AB-BC7C-471C-99F0-51AA89313C83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B49FC4AB-BC7C-471C-99F0-51AA89313C83}.Release|x64.ActiveCfg = Release|x64
+		{B49FC4AB-BC7C-471C-99F0-51AA89313C83}.Release|x64.Build.0 = Release|x64
+		{B49FC4AB-BC7C-471C-99F0-51AA89313C83}.Release|x86.ActiveCfg = Release|x64
+		{B49FC4AB-BC7C-471C-99F0-51AA89313C83}.Release|x86.Build.0 = Release|x64
+		{F62FCEC6-B818-487A-9FF5-D67D267FEB3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F62FCEC6-B818-487A-9FF5-D67D267FEB3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F62FCEC6-B818-487A-9FF5-D67D267FEB3D}.Debug|x64.ActiveCfg = Debug|x64
+		{F62FCEC6-B818-487A-9FF5-D67D267FEB3D}.Debug|x64.Build.0 = Debug|x64
+		{F62FCEC6-B818-487A-9FF5-D67D267FEB3D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F62FCEC6-B818-487A-9FF5-D67D267FEB3D}.Debug|x86.Build.0 = Debug|Any CPU
+		{F62FCEC6-B818-487A-9FF5-D67D267FEB3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F62FCEC6-B818-487A-9FF5-D67D267FEB3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F62FCEC6-B818-487A-9FF5-D67D267FEB3D}.Release|x64.ActiveCfg = Release|x64
+		{F62FCEC6-B818-487A-9FF5-D67D267FEB3D}.Release|x64.Build.0 = Release|x64
+		{F62FCEC6-B818-487A-9FF5-D67D267FEB3D}.Release|x86.ActiveCfg = Release|Any CPU
+		{F62FCEC6-B818-487A-9FF5-D67D267FEB3D}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{096B168F-0CAE-432A-A44C-611C2BD0349E} = {BD88B0DD-A88B-497D-990B-D002F507654E}
+		{46B37086-A994-4E95-B7DC-220E8217F010} = {BD88B0DD-A88B-497D-990B-D002F507654E}
+		{58FE162E-2E19-4C2A-A540-16729888CAF5} = {BD88B0DD-A88B-497D-990B-D002F507654E}
+		{B49FC4AB-BC7C-471C-99F0-51AA89313C83} = {A2FD8F5F-5C0A-45E5-8D84-74E486C9BC65}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BCD21BCA-8E86-446D-92F8-66FB7FED8AED}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://wdappprd70:8080/tfs/mosaiccollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ProspectDataReduction.vbproj
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = ..\\Office\\Mining.Common\\Mining.Common.vbproj
+		SccProjectName2 = ../Office/Mining.Common
+		SccLocalPath2 = ..\\Office\\Mining.Common
+		SccProjectUniqueName3 = ..\\SplitDataReducer\\Mosiac.ProspectMining.Business\\Mosaic.ProspectMining.Business.csproj
+		SccProjectTopLevelParentUniqueName3 = ProspectDataReduction.sln
+		SccProjectName3 = ../SplitDataReducer/Mosiac.ProspectMining.Business
+		SccLocalPath3 = ..\\SplitDataReducer\\Mosiac.ProspectMining.Business
+		SccProjectUniqueName4 = ..\\SplitDataReducer\\Mosaic.ProspectMining.Model\\Mosaic.ProspectMining.Model.csproj
+		SccProjectTopLevelParentUniqueName4 = ProspectDataReduction.sln
+		SccProjectName4 = ../SplitDataReducer/Mosaic.ProspectMining.Model
+		SccLocalPath4 = ..\\SplitDataReducer\\Mosaic.ProspectMining.Model
+		SccProjectUniqueName5 = ..\\SplitDataReducer\\Mosaic.ProspectMining.Data\\Mosaic.ProspectMining.Data.csproj
+		SccProjectTopLevelParentUniqueName5 = ProspectDataReduction.sln
+		SccProjectName5 = ../SplitDataReducer/Mosaic.ProspectMining.Data
+		SccLocalPath5 = ..\\SplitDataReducer\\Mosaic.ProspectMining.Data
+		SccProjectUniqueName6 = ..\\..\\..\\Mining\\Prospect\\Entities\\Entities.vbproj
+		SccProjectTopLevelParentUniqueName6 = ProspectDataReduction.sln
+		SccProjectName6 = ../../../Mining/Prospect/Entities
+		SccLocalPath6 = ..\\..\\..\\Mining\\Prospect\\Entities
+		SccProjectUniqueName7 = ..\\..\\..\\Mining\\Prospect\\RawProspect_WCFServiceLib\\RawProspect_WCFServiceLib.vbproj
+		SccProjectName7 = ../../../Mining/Prospect/RawProspect_WCFServiceLib
+		SccLocalPath7 = ..\\..\\..\\Mining\\Prospect\\RawProspect_WCFServiceLib
+		SccProjectUniqueName8 = ..\\..\\..\\Util\\Data\\OracleHelper64\\OracleHelper64\\OracleHelper64.csproj
+		SccProjectName8 = ../../../Util/Data/OracleHelper64/OracleHelper64
+		SccLocalPath8 = ..\\..\\..\\Util\\Data\\OracleHelper64\\OracleHelper64
+	EndGlobalSection
+EndGlobal

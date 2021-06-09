@@ -1,0 +1,830 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{38D6AA82-B530-4E22-88CD-50CE5161D775}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>ProspectDataReduction.My.MyApplication</StartupObject>
+    <RootNamespace>ProspectDataReduction</RootNamespace>
+    <AssemblyName>ProspectDataReduction</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>\\phosphateopsdev.mosaicco.com\Publish\ProspectDataReductionQA\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://phosphateopsdev.mosaicco.com/Publish/ProspectDataReductionQA/</InstallUrl>
+    <ProductName>Prospect Data Reduction QA</ProductName>
+    <PublisherName>Mosaic</PublisherName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>ProspectDataReduction.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>ProspectDataReduction.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>ProspectDataReduction.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>ProspectDataReduction.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>6BCF8741E444B8D1B0203A62B729D01F20318EE5</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ProspectDataReduction_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Libraries\DataMining4.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.FPSpread, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Libraries\FPSpread\Spread60\ActiveX\AxInterop.FPSpread.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine">
+      <HintPath>..\..\..\Libraries\CrystalReports\13.0\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource">
+      <HintPath>..\..\..\Libraries\CrystalReports\13.0\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared">
+      <HintPath>..\..\..\Libraries\CrystalReports\13.0\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms">
+      <HintPath>..\..\..\Libraries\CrystalReports\13.0\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper">
+      <HintPath>Libraries New Version\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Branches\Dev\Libraries\DevExpress\18.1\DevExpress.Data.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Branches\Dev\Libraries\DevExpress\18.1\DevExpress.Printing.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Branches\Dev\Libraries\DevExpress\18.1\DevExpress.Utils.v18.1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Branches\Dev\Libraries\DevExpress\18.1\DevExpress.XtraBars.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Branches\Dev\Libraries\DevExpress\18.1\DevExpress.XtraEditors.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Branches\Dev\Libraries\DevExpress\18.1\DevExpress.XtraGrid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Branches\Dev\Libraries\DevExpress\18.1\DevExpress.XtraLayout.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Branches\Dev\Libraries\DevExpress\18.1\DevExpress.XtraPrinting.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.FPSpread, Version=6.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>Libraries\Interop.FPSpread.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.OracleInProcServer, Version=5.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>Libraries\Interop.OracleInProcServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>Libraries\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>..\..\..\..\Libraries\Microsoft\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization">
+      <HintPath>..\..\..\..\Libraries\Microsoft\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>..\..\..\..\Libraries\Microsoft\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Mosaic.Util.Data.OracleHelper">
+      <HintPath>..\..\..\..\..\Main\Libraries\Mosaic\OracleHelper\2.0\Mosaic.Util.Data.OracleHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Mosaic.Util.Encryption.Encryptor">
+      <HintPath>..\..\..\..\Libraries\Mosaic\Encryption\2.0\Mosaic.Util.Encryption.Encryptor.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess">
+      <HintPath>Libraries New Version\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppShared.vb" />
+    <Compile Include="ctrAreaDefinition.Designer.vb">
+      <DependentUpon>ctrAreaDefinition.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ctrAreaDefinition.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrProductResult.designer.vb">
+      <DependentUpon>ctrProductResult.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ctrProductResult.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrProductSizeDesignation.Designer.vb">
+      <DependentUpon>ctrProductSizeDesignation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ctrProductSizeDesignation.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrRecoveryAndMineabilityParameters.Designer.vb">
+      <DependentUpon>ctrRecoveryAndMineabilityParameters.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ctrRecoveryAndMineabilityParameters.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Database.vb" />
+    <Compile Include="frmDataSourcePick.designer.vb">
+      <DependentUpon>frmDataSourcePick.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDataSourcePick.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMDIMain.designer.vb">
+      <DependentUpon>frmMDIMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMDIMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProspDataHoleReduction.designer.vb">
+      <DependentUpon>frmProspDataHoleReduction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProspDataHoleReduction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProspDataReduction.designer.vb">
+      <DependentUpon>frmProspDataReduction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProspDataReduction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProspectGridHoleSelection.Designer.vb">
+      <DependentUpon>frmProspectGridHoleSelection.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProspectGridHoleSelection.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReport.Designer.vb">
+      <DependentUpon>frmReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modAutocad.vb" />
+    <Compile Include="modGlobalInfo.vb" />
+    <Compile Include="modHtml.vb" />
+    <Compile Include="modMassBalanceFc.vb" />
+    <Compile Include="modMassBalanceSf.vb" />
+    <Compile Include="modMinesPumping.vb" />
+    <Compile Include="modProspectHoles.vb" />
+    <Compile Include="modRawProspDataReduction.vb" />
+    <Compile Include="modRawProspect.vb" />
+    <Compile Include="modRawProspectNew.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Print\DevExpressGridPrinter.vb" />
+    <Compile Include="Print\FarPointGridPrinter.vb" />
+    <Compile Include="Print\frmGridToText.designer.vb">
+      <DependentUpon>frmGridToText.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Print\frmGridToText.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\IGridPrinter.vb" />
+    <Compile Include="Print\PrintSetting.vb" />
+    <Compile Include="ScreenCapture.vb" />
+    <Compile Include="Service References\RawService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ReductionService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Recovery And Mineability\MiniabilityParameters.vb" />
+    <Compile Include="ViewModels\Recovery And Mineability\ProductQualitySpecification.vb" />
+    <Compile Include="ViewModels\Recovery And Mineability\ProductRecoveryDefinition.vb" />
+    <Compile Include="ViewModels\Recovery And Mineability\RecoveryDilutionParamaters.vb" />
+    <Compile Include="ViewModels\Products\SplitResult.vb" />
+    <Compile Include="ViewModels\SFC Product Designation\ProductSFCDistribution.vb" />
+    <Compile Include="ViewModels\SFC Product Designation\ProductSizeDesignation.vb" />
+    <Compile Include="ViewModels\Area Definition\ProspectAreaDefinition.vb" />
+    <Compile Include="ViewModels\Area Definition\ProspectAreaHole.vb" />
+    <Compile Include="ViewModels\Area Definition\ProspectAreaTRSCorner.vb" />
+    <Compile Include="ViewModels\Area Definition\ProspectAreaXYCorner.vb" />
+    <Compile Include="ViewModels\Area Definition\ProspectGridHole.vb" />
+    <Compile Include="ViewModels\Area Definition\ProspectGridHoles.vb" />
+    <Compile Include="Web References\CommonMiningWeb\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SecurityWeb\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ValueListWeb\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ctrAreaDefinition.resx">
+      <DependentUpon>ctrAreaDefinition.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrProductResult.resx">
+      <DependentUpon>ctrProductResult.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrProductSizeDesignation.resx">
+      <DependentUpon>ctrProductSizeDesignation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrRecoveryAndMineabilityParameters.resx">
+      <DependentUpon>ctrRecoveryAndMineabilityParameters.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDataSourcePick.resx">
+      <DependentUpon>frmDataSourcePick.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMDIMain.resx">
+      <DependentUpon>frmMDIMain.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProspDataHoleReduction.resx">
+      <DependentUpon>frmProspDataHoleReduction.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProspDataReduction.resx">
+      <DependentUpon>frmProspDataReduction.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProspectGridHoleSelection.resx">
+      <DependentUpon>frmProspectGridHoleSelection.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReport.resx">
+      <DependentUpon>frmReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\frmGridToText.resx">
+      <DependentUpon>frmGridToText.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ConnectionStrings.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\DataSources\ProspectDataReduction.ViewModels.MiniabilityParameters.datasource" />
+    <None Include="My Project\DataSources\ProspectDataReduction.ViewModels.ProductRecoveryDefinition.datasource" />
+    <None Include="My Project\DataSources\ProspectDataReduction.ViewModels.ProspectAreaDefinition.datasource" />
+    <None Include="My Project\DataSources\ProspectDataReduction.ViewModels.ProspectAreaDefinitionDetail.datasource" />
+    <None Include="My Project\DataSources\ProspectDataReduction.ViewModels.ProspectAreaHole.datasource" />
+    <None Include="My Project\DataSources\ProspectDataReduction.ViewModels.ProspectAreaTRSCorner.datasource" />
+    <None Include="My Project\DataSources\ProspectDataReduction.ViewModels.ProspectAreaXYCorner.datasource" />
+    <None Include="My Project\DataSources\ProspectDataReduction.ViewModels.RecoveryDilutionParamaters.datasource" />
+    <None Include="My Project\DataSources\ProspectDataReduction.ViewModels.SplitProductResult.datasource" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="ProspectDataReduction_TemporaryKey.pfx" />
+    <None Include="ProspectReduction.rpt" />
+    <None Include="Service References\RawService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RawService\Entities.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.Area.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.BusinessEntityAttributeValue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.CompBase.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.FlotCalcData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.HoleLocation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.MineAreaSampCount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.MtxDensityModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.MtxPctSolidsModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.ProspectBankCode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.ProspectCode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.ProspectComboBoxChoice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.ProspectMine.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.ProspectMineSection.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.ProspSizeFrctnWeight.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.RawProspCalc.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.RawProspectBase.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.RawProspectHoleDS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.RawProspectHoles.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.RawProspectHoleSpec1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.RawProspectLabAnalysis.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.RawProspectProcessSfc.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.RawProspectSample.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.RawProspectSfc.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.RawProspectSplit.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.RawProspectSplitHole.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.RawProspectSplitsRedrill.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.RawProspError.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.RawProspQAQCHole.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.SampleSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.SizeFraction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.SizeFractionCode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.SplitBase.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\ProspectDataReduction.RawService.ZzzRatio.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RawService\RawProspect_WCFServiceLib.HierarchyWeb.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RawService\service.wsdl" />
+    <None Include="Service References\RawService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RawService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReductionService\Entities1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReductionService\ProspectDataReduction.ReductionService.ProductRecoveryDefinitionData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReductionService\ProspectDataReduction.ReductionService.ProductSizeDefinitionData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReductionService\ProspectDataReduction.ReductionService.ProspectAreaDefinitionData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReductionService\service1.wsdl" />
+    <None Include="Service References\ReductionService\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReductionService\service21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\CommonMiningWeb\BusinessEntityAttributeValue.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CommonMiningWeb\commonmining.wsdl" />
+    <None Include="Web References\CommonMiningWeb\EquipmentLocationData.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CommonMiningWeb\MineData.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CommonMiningWeb\ProductionData.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CommonMiningWeb\ProspectCodesDetailData.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CommonMiningWeb\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\SecurityWeb\Activity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SecurityWeb\ActivityDS.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SecurityWeb\ActivityDS.xsd" />
+    <None Include="Web References\SecurityWeb\ActivityType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SecurityWeb\ActivityTypeDS.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SecurityWeb\ActivityTypeDS.xsd" />
+    <None Include="Web References\SecurityWeb\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\SecurityWeb\Role.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SecurityWeb\RoleActivityDS.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SecurityWeb\RoleActivityDS.xsd" />
+    <None Include="Web References\SecurityWeb\RoleDS.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SecurityWeb\RoleDS.xsd" />
+    <None Include="Web References\SecurityWeb\security.wsdl" />
+    <None Include="Web References\SecurityWeb\User.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SecurityWeb\UserDS.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SecurityWeb\UserDS.xsd" />
+    <None Include="Web References\SecurityWeb\UserRoleDS.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SecurityWeb\UserRoleDS.xsd" />
+    <None Include="Web References\ValueListWeb\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ValueListWeb\ValueGroupDetailDS.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ValueListWeb\ValueGroupDetailDS.xsc">
+      <DependentUpon>ValueGroupDetailDS.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\ValueListWeb\ValueGroupDetailDS.xsd" />
+    <None Include="Web References\ValueListWeb\ValueGroupDetailDS.xss">
+      <DependentUpon>ValueGroupDetailDS.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\ValueListWeb\ValueList.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ValueListWeb\valuelist.wsdl" />
+    <None Include="Web References\ValueListWeb\ValueListDetailDS.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ValueListWeb\ValueListDetailDS.xsd" />
+    <None Include="Web References\ValueListWeb\ValueListGroupDS.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ValueListWeb\ValueListGroupDS.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://phosphateopsdev.mosaicco.com/util/Security/security.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SecurityWeb\</RelPath>
+      <UpdateFromURL>http://phosphateopsdev.mosaicco.com/util/Security/security.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ProspectDataReduction_SecurityWeb_SecurityService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://phosphateops.mosaicco.com/Mining/Common/CommonMining.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CommonMiningWeb\</RelPath>
+      <UpdateFromURL>http://phosphateops.mosaicco.com/Mining/Common/CommonMining.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ProspectDataReduction_CommonMiningWeb_CommonMining</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://phosphateops.mosaicco.com/production/tracking/valuelist.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ValueListWeb\</RelPath>
+      <UpdateFromURL>http://phosphateops.mosaicco.com/production/tracking/valuelist.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ProspectDataReduction_ValueListWeb_ValueListService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\SecurityWeb\security.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Libraries New Version\Dapper.dll" />
+    <Content Include="Libraries New Version\Mosaic.ProspectMining.Business.dll" />
+    <Content Include="Libraries New Version\Mosaic.ProspectMining.Data.dll" />
+    <Content Include="Libraries New Version\Mosaic.ProspectMining.Model.dll" />
+    <Content Include="Libraries New Version\Oracle.ManagedDataAccess.dll" />
+    <Content Include="Libraries\AxInterop.FPSpread.dll" />
+    <Content Include="Libraries\DataMining4.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libraries\DevExpress.Data.v15.2.dll" />
+    <Content Include="Libraries\DevExpress.Printing.v15.2.Core.dll" />
+    <Content Include="Libraries\DevExpress.Sparkline.v15.2.Core.dll" />
+    <Content Include="Libraries\DevExpress.Utils.v15.2.dll" />
+    <Content Include="Libraries\DevExpress.XtraEditors.v15.2.dll" />
+    <Content Include="Libraries\Interop.FPSpread.dll" />
+    <Content Include="Libraries\Interop.OracleInProcServer.dll" />
+    <Content Include="Libraries\Microsoft.Office.Interop.Excel.dll" />
+    <Content Include="Microsoft.Office.Interop.Excel.dll" />
+    <None Include="Service References\ReductionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Service References\ReductionService\configuration.svcinfo" />
+    <None Include="Service References\ReductionService\configuration91.svcinfo" />
+    <None Include="Web References\ValueListWeb\valuelist.disco" />
+    <None Include="Web References\CommonMiningWeb\commonmining.disco" />
+    <None Include="Service References\RawService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Service References\RawService\configuration.svcinfo" />
+    <None Include="Service References\RawService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\RawService\" />
+    <WCFMetadataStorage Include="Service References\ReductionService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Office\Mining.Common\Mining.Common.vbproj">
+      <Project>{9583f64a-9e75-4315-acbb-530a62814695}</Project>
+      <Name>Mining.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SplitDataReducer\Mosaic.ProspectMining.Model\Mosaic.ProspectMining.Model.csproj">
+      <Project>{46b37086-a994-4e95-b7dc-220e8217f010}</Project>
+      <Name>Mosaic.ProspectMining.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SplitDataReducer\Mosiac.ProspectMining.Business\Mosaic.ProspectMining.Business.csproj">
+      <Project>{096b168f-0cae-432a-a44c-611c2bd0349e}</Project>
+      <Name>Mosaic.ProspectMining.Business</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>attrib -r $(ProjectDir)Web.Config</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
