@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://mosaicco.com/Production/Tracking/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://mosaicco.com/Production/Tracking/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://mosaicco.com/Production/Tracking/">
+      <s:import namespace="http://fert.cargill.com/Datasets/ValueListGroupDS.xsd" />
+      <s:import namespace="http://fert.cargill.com/ValueGroupDetailDS.xsd" />
+      <s:import namespace="http://fert.cargill.com/Datasets/ValueListDetailDS.xsd" />
+      <s:import schemaLocation="http://phosphateops.mosaicco.com/production/tracking/valuelist.asmx?schema=ValueListDetailDS" namespace="http://fert.cargill.com/Datasets/ValueListDetailDS.xsd" />
+      <s:import schemaLocation="http://phosphateops.mosaicco.com/production/tracking/valuelist.asmx?schema=ValueGroupDetailDS" namespace="http://fert.cargill.com/ValueGroupDetailDS.xsd" />
+      <s:import schemaLocation="http://phosphateops.mosaicco.com/production/tracking/valuelist.asmx?schema=ValueListGroupDS" namespace="http://fert.cargill.com/Datasets/ValueListGroupDS.xsd" />
+      <s:element name="GetNewID">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNewIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNewIDResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetGroupListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupListResult" type="tns:ArrayOfValueList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfValueList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ValueList" nillable="true" type="tns:ValueList" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ValueList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Detail" type="tns:ArrayOfValueListDetail" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValueListGroupName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValueListGroupDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfValueListDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ValueListDetail" type="tns:ValueListDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ValueListDetail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="lngValueListGroupID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="strTextValue" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="lngSortOrder" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGroupDS">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetGroupDSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupDSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://fert.cargill.com/Datasets/ValueListGroupDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupDSByGroupID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValueGroupID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupDSByGroupIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupDSByGroupIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://fert.cargill.com/Datasets/ValueListGroupDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupDetailDS">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetGroupDetailDSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupDetailDSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://fert.cargill.com/ValueGroupDetailDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValueGroupID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupByIDResult" type="tns:ValueList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDetailDS">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDetailDSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDetailDSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://fert.cargill.com/Datasets/ValueListDetailDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDetailDSByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValueListID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDetailDSByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDetailDSByIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://fert.cargill.com/Datasets/ValueListDetailDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDetailByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValueListID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDetailByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDetailByIDResult" type="tns:ArrayOfValueList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDetailDSByGroupName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GroupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDetailDSByGroupNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDetailDSByGroupNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://fert.cargill.com/Datasets/ValueListDetailDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScheduleRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SchID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScheduleRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetScheduleRoleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://fert.cargill.com/Datasets/ValueListDetailDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDetailDSScheduleRole">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDetailDSScheduleRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDetailDSScheduleRoleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://fert.cargill.com/Datasets/ValueListDetailDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDetailDSByDataPointID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DataPointID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDetailDSByDataPointIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDetailDSByDataPointIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://fert.cargill.com/Datasets/ValueListDetailDS.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dpi" type="tns:ValueList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TextValue" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SortOrder" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDetailResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dpi" type="tns:ValueList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Remove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveDetailResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateDetailByValueList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dpdi" type="tns:ValueList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDetailByValueListResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TextValue" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SortOrder" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDetailResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetNewIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewID" />
+  </wsdl:message>
+  <wsdl:message name="GetNewIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupList" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupDSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupDS" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupDSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupDSByGroupIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupDSByGroupID" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupDSByGroupIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupDSByGroupIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupDetailDSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupDetailDS" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupDetailDSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupDetailDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupByID" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailDSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDetailDS" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailDSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDetailDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailDSByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDetailDSByID" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailDSByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDetailDSByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDetailByID" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDetailByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailDSByGroupNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDetailDSByGroupName" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailDSByGroupNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDetailDSByGroupNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetScheduleRole" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetScheduleRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailDSScheduleRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDetailDSScheduleRole" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailDSScheduleRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDetailDSScheduleRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailDSByDataPointIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDetailDSByDataPointID" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailDSByDataPointIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDetailDSByDataPointIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapIn">
+    <wsdl:part name="parameters" element="tns:Add" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapOut">
+    <wsdl:part name="parameters" element="tns:AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDetail" />
+  </wsdl:message>
+  <wsdl:message name="AddDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:AddDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapIn">
+    <wsdl:part name="parameters" element="tns:Remove" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveDetail" />
+  </wsdl:message>
+  <wsdl:message name="RemoveDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDetailByValueListSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDetailByValueList" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDetailByValueListSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDetailByValueListResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDetail" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDetailResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ValueListServiceSoap">
+    <wsdl:operation name="GetNewID">
+      <wsdl:input message="tns:GetNewIDSoapIn" />
+      <wsdl:output message="tns:GetNewIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupList">
+      <wsdl:input message="tns:GetGroupListSoapIn" />
+      <wsdl:output message="tns:GetGroupListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupDS">
+      <wsdl:input message="tns:GetGroupDSSoapIn" />
+      <wsdl:output message="tns:GetGroupDSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupDSByGroupID">
+      <wsdl:input message="tns:GetGroupDSByGroupIDSoapIn" />
+      <wsdl:output message="tns:GetGroupDSByGroupIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupDetailDS">
+      <wsdl:input message="tns:GetGroupDetailDSSoapIn" />
+      <wsdl:output message="tns:GetGroupDetailDSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupByID">
+      <wsdl:input message="tns:GetGroupByIDSoapIn" />
+      <wsdl:output message="tns:GetGroupByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDS">
+      <wsdl:input message="tns:GetDetailDSSoapIn" />
+      <wsdl:output message="tns:GetDetailDSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDSByID">
+      <wsdl:input message="tns:GetDetailDSByIDSoapIn" />
+      <wsdl:output message="tns:GetDetailDSByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailByID">
+      <wsdl:input message="tns:GetDetailByIDSoapIn" />
+      <wsdl:output message="tns:GetDetailByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDSByGroupName">
+      <wsdl:input message="tns:GetDetailDSByGroupNameSoapIn" />
+      <wsdl:output message="tns:GetDetailDSByGroupNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleRole">
+      <wsdl:input message="tns:GetScheduleRoleSoapIn" />
+      <wsdl:output message="tns:GetScheduleRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDSScheduleRole">
+      <wsdl:input message="tns:GetDetailDSScheduleRoleSoapIn" />
+      <wsdl:output message="tns:GetDetailDSScheduleRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDSByDataPointID">
+      <wsdl:input message="tns:GetDetailDSByDataPointIDSoapIn" />
+      <wsdl:output message="tns:GetDetailDSByDataPointIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <wsdl:input message="tns:AddSoapIn" />
+      <wsdl:output message="tns:AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDetail">
+      <wsdl:input message="tns:AddDetailSoapIn" />
+      <wsdl:output message="tns:AddDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input message="tns:RemoveSoapIn" />
+      <wsdl:output message="tns:RemoveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDetail">
+      <wsdl:input message="tns:RemoveDetailSoapIn" />
+      <wsdl:output message="tns:RemoveDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDetailByValueList">
+      <wsdl:input message="tns:UpdateDetailByValueListSoapIn" />
+      <wsdl:output message="tns:UpdateDetailByValueListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDetail">
+      <wsdl:input message="tns:UpdateDetailSoapIn" />
+      <wsdl:output message="tns:UpdateDetailSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ValueListServiceSoap" type="tns:ValueListServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNewID">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/GetNewID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupList">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/GetGroupList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupDS">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/GetGroupDS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupDSByGroupID">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/GetGroupDSByGroupID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupDetailDS">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/GetGroupDetailDS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupByID">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/GetGroupByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDS">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/GetDetailDS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDSByID">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/GetDetailDSByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailByID">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/GetDetailByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDSByGroupName">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/GetDetailDSByGroupName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleRole">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/GetScheduleRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDSScheduleRole">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/GetDetailDSScheduleRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDSByDataPointID">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/GetDetailDSByDataPointID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDetail">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/AddDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/Remove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDetail">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/RemoveDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDetailByValueList">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/UpdateDetailByValueList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDetail">
+      <soap:operation soapAction="http://mosaicco.com/Production/Tracking/UpdateDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ValueListServiceSoap12" type="tns:ValueListServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNewID">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/GetNewID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupList">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/GetGroupList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupDS">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/GetGroupDS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupDSByGroupID">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/GetGroupDSByGroupID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupDetailDS">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/GetGroupDetailDS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupByID">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/GetGroupByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDS">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/GetDetailDS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDSByID">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/GetDetailDSByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailByID">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/GetDetailByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDSByGroupName">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/GetDetailDSByGroupName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleRole">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/GetScheduleRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDSScheduleRole">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/GetDetailDSScheduleRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDSByDataPointID">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/GetDetailDSByDataPointID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDetail">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/AddDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/Remove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDetail">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/RemoveDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDetailByValueList">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/UpdateDetailByValueList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDetail">
+      <soap12:operation soapAction="http://mosaicco.com/Production/Tracking/UpdateDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ValueListService">
+    <wsdl:port name="ValueListServiceSoap" binding="tns:ValueListServiceSoap">
+      <soap:address location="http://phosphateops.mosaicco.com/production/tracking/valuelist.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ValueListServiceSoap12" binding="tns:ValueListServiceSoap12">
+      <soap12:address location="http://phosphateops.mosaicco.com/production/tracking/valuelist.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

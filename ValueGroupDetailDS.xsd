@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://fert.cargill.com/ValueGroupDetailDS.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://fert.cargill.com/ValueGroupDetailDS.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://fert.cargill.com/ValueGroupDetailDS.xsd" id="ValueGroupDetailDS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="ValueGroupDetailDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ValueGroup">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" type="xs:long" />
+              <xs:element minOccurs="0" name="Name" type="xs:string" />
+              <xs:element minOccurs="0" name="Description" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ValueDetail">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="ID" type="xs:long" />
+              <xs:element minOccurs="0" name="Value" type="xs:string" />
+              <xs:element minOccurs="0" name="SortOrder" type="xs:long" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="PKID">
+      <xs:selector xpath=".//mstns:ValueGroup" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:keyref msdata:ConstraintOnly="true" msdata:AcceptRejectRule="Cascade" name="ValueGroupValueDetail" refer="mstns:PKID">
+      <xs:selector xpath=".//mstns:ValueDetail" />
+      <xs:field xpath="mstns:ID" />
+    </xs:keyref>
+  </xs:element>
+</xs:schema>
