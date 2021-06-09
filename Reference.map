@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://phosphateops.mosaicco.com/production/tracking/valuelist.asmx?disco" filename="valuelist.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://phosphateops.mosaicco.com/production/tracking/valuelist.asmx?schema=ValueGroupDetailDS" filename="ValueGroupDetailDS.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://phosphateops.mosaicco.com/production/tracking/valuelist.asmx?wsdl" filename="valuelist.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://phosphateops.mosaicco.com/production/tracking/valuelist.asmx?schema=ValueListGroupDS" filename="ValueListGroupDS.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://phosphateops.mosaicco.com/production/tracking/valuelist.asmx?schema=ValueListDetailDS" filename="ValueListDetailDS.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>
